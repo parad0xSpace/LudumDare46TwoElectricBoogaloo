@@ -8,7 +8,7 @@ public class TemericHP : MonoBehaviour
     public GameObject slider;
     public Slider hpSlider;
     public int hpStart = 4;
-    int hp;
+    public static int hp;
     float iFrames;
     public float iFramePrin = 4;
     public Animator plantKiller;

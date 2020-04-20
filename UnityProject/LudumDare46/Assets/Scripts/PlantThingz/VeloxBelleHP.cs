@@ -8,7 +8,7 @@ public class VeloxBelleHP : MonoBehaviour
     public GameObject slider;
     public Slider hpSlider;
     public int hpStart = 5;
-    int hp;
+    public static int hp;
     float iFrames;
     public float iFramePrin = 4;
     public Animator plantKiller;

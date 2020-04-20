@@ -8,6 +8,8 @@ TagManager:
   - trowel
   - fertilizer
   - sickle
+  - Enemy
+  - Swing
   layers:
   - Default
   - TransparentFX

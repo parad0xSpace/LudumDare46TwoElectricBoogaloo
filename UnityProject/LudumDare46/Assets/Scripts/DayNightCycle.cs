@@ -48,7 +48,7 @@ public class DayNightCycle : MonoBehaviour
     IEnumerator DayTimer()
     {
         Debug.Log("Day");
-        yield return new WaitForSeconds(90);
+        yield return new WaitForSeconds(60);
         isDay = false;
         EveningStart();
     }
