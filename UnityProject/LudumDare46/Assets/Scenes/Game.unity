@@ -674,6 +674,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1378728742485238028, guid: 9538ef69d5688fc4fa2335d19b46c344,
         type: 3}
+    - target: {fileID: 5536166226483841782, guid: 9e045d14ab4c9c14abd0d43f0f61aa70,
+        type: 3}
+      propertyPath: iFramePrin
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8997219806341672605, guid: 9e045d14ab4c9c14abd0d43f0f61aa70,
         type: 3}
       propertyPath: wateringCan

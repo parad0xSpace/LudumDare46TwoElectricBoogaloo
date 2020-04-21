@@ -2119,9 +2119,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: The sickle is used to harvest fully-grown plants! You can harvest plants
-    for points, but fully-grown plants provide special buffs! At night, your sickle
-    doubles as a weapon.
+  m_Text: The sickle is used to harvest fully-grown plants for points! At night,
+    your sickle doubles as a weapon.
 --- !u!222 &2064495146
 CanvasRenderer:
   m_ObjectHideFlags: 0

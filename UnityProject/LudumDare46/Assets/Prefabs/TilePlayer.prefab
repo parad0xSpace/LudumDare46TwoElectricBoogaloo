@@ -275,8 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 5127766001126861033}
   hpSlider: {fileID: 8143772230875814582}
-  hpStart: 10
-  iFramePrin: 4
+  hpStart: 600
 --- !u!1 &397798547634167790
 GameObject:
   m_ObjectHideFlags: 0

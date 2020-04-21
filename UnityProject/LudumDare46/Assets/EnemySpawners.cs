@@ -20,6 +20,11 @@ public class EnemySpawners : MonoBehaviour
             StartCoroutine(TimerCount());
             Debug.Log("foo");
         }
+
+        if(DayNightCycle.isDay)
+        {
+            DestroyAllObjects();
+        }
     }
 
     IEnumerator TimerCount()
@@ -35,7 +40,7 @@ public class EnemySpawners : MonoBehaviour
     {
         int e = Random.Range(0, 10);
         Debug.Log(e);
-        if (e <= 6)
+        if (e <= 3)
         {
             SpawnGameObject(enemies, spawner, DayNightCycle.dayCount);
         }
@@ -53,4 +58,16 @@ public class EnemySpawners : MonoBehaviour
             Debug.Log("victoire");
         }
     }
+
+    void DestroyAllObjects()
+    {
+        var gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
+
+        for (var i = 0; i < gameObjects.Length; i++)
+        {
+            Destroy(gameObjects[i]);
+        }
+    }
 }
+
+

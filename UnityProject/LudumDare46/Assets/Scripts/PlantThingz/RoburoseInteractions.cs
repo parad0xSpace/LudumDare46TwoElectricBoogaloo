@@ -12,7 +12,6 @@ public class RoburoseInteractions : MonoBehaviour
     bool watered;
     public Animator anim;
     public bool grown;
-    bool harvest;
 
     int s1;
     int s2;
@@ -22,10 +21,7 @@ public class RoburoseInteractions : MonoBehaviour
     public Slider hpSlider;
     public int hpStart = 6;
     public static int hp;
-    float iFrames;
-    public float iFramePrin = 4;
     public Animator plantKiller;
-    bool IV;
 
     void Start()
     {
@@ -35,13 +31,10 @@ public class RoburoseInteractions : MonoBehaviour
         rosePlanted = false;
         watered = false;
         grown = false;
-        harvest = false;
 
         hp = hpStart;
-        iFrames = iFramePrin;
         hpSlider.maxValue = hpStart;
         slider.gameObject.SetActive(false);
-        IV = false;
     }
 
     void Update()
@@ -61,16 +54,6 @@ public class RoburoseInteractions : MonoBehaviour
             slider.gameObject.SetActive(false);
         }
 
-        if (IV && iFrames == iFramePrin)
-        {
-            iFrames -= Time.deltaTime;
-        }
-
-        if (iFrames < 0)
-        {
-            IV = false;
-            iFrames = iFramePrin;
-        }
     }
 
     void OnTriggerStay2D(Collider2D collision)
@@ -80,11 +63,10 @@ public class RoburoseInteractions : MonoBehaviour
             Interact();
         }
 
-        if (collision.gameObject.tag == "Enemy" && !IV)
+        if (collision.gameObject.tag == "Enemy")
         {
             hp--;
             hpSlider.value = hp;
-            IV = true;
             if (hp < 1)
             {
                 plantKiller.SetTrigger("Kill");
@@ -167,29 +149,12 @@ public class RoburoseInteractions : MonoBehaviour
         if (EquipTools.sickleEquip && DayNightCycle.dayCount >= s3 && rosePlanted)
         {
             roseCanvas.gameObject.SetActive(true);
-            if (harvest)
-            {
-                roseCanvas.gameObject.SetActive(false);
-                dug = false;
-                rosePlanted = false;
-                grown = false;
-                Score.score += 50;
-                if (watered)
-                {
-                    anim.SetTrigger("Wet");
-                }
-                else
-                {
-                    anim.SetTrigger("Dry");
-                }
-            }
         }
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
         roseCanvas.gameObject.SetActive(false);
-        harvest = false;
     }
 
     void Growth()
@@ -212,6 +177,18 @@ public class RoburoseInteractions : MonoBehaviour
 
     public void YesHarvest()
     {
-        harvest = true;
+        roseCanvas.gameObject.SetActive(false);
+        dug = false;
+        rosePlanted = false;
+        grown = false;
+        Score.score += 50;
+        if (watered)
+        {
+            anim.SetTrigger("Wet");
+        }
+        else
+        {
+            anim.SetTrigger("Dry");
+        }
     }
 }

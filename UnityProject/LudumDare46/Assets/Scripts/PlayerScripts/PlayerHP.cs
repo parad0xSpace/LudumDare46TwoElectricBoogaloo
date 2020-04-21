@@ -10,17 +10,12 @@ public class PlayerHP : MonoBehaviour
     public Slider hpSlider;
     public int hpStart = 10;
     public static int hp;
-    float iFrames;
-    public float iFramePrin = 4;
-    bool IV;
 
     void Start()
     {
         hp = hpStart;
-        iFrames = iFramePrin;
         hpSlider.maxValue = hpStart;
         slider.gameObject.SetActive(false);
-        IV = false;
     }
 
     void Update()
@@ -33,26 +28,14 @@ public class PlayerHP : MonoBehaviour
         {
             slider.gameObject.SetActive(false);
         }
-
-        if (IV && iFrames == iFramePrin)
-        {
-            iFrames -= Time.deltaTime;
-        }
-
-        if (iFrames < 0)
-        {
-            IV = false;
-            iFrames = iFramePrin;
-        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy" && !IV)
+        if (collision.gameObject.tag == "Enemy")
         {
-            hp--;
+            hp -= 1;
             hpSlider.value = hp;
-            IV = true;
             if (hp < 1)
             {
                 SceneManager.LoadScene("HighScore");
